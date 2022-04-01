@@ -1,0 +1,11 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+jupyterlab
+tensorflow
+pyaml
+pydot
+tables
+ipywidgets
