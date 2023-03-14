@@ -145,10 +145,7 @@ def plot_roc_test_train(model, ytest, xtest, wgttest=None, ytrain=None, xtrain=N
     plt.legend(loc=4);
 
 
-
-    
-# compute approximate median significance (AMS) (Higgs challenge)
 def ams(s,b):
+    "compute approximate median significance (AMS) (Higgs challenge)"
     # The number 10, added to the background yield, is a regularization term to decrease the variance of the AMS.
     return np.sqrt(2*((s+b+10)*np.log(1+s/(b+10))-s))
-
