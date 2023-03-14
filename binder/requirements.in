@@ -1,5 +1,5 @@
 numpy
-pandas
+pandas>=1.5.3
 scikit-learn
 matplotlib
 seaborn
@@ -7,5 +7,6 @@ jupyterlab
 tensorflow
 pyaml
 pydot
+graphviz
 tables
 ipywidgets
