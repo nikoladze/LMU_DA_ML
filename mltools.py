@@ -152,3 +152,27 @@ def ams(s,b):
     # The number 10, added to the background yield, is a regularization term to decrease the variance of the AMS.
     return np.sqrt(2*((s+b+10)*np.log(1+s/(b+10))-s))
 
+
+
+# Run the AMS scan
+from sklearn.metrics import roc_curve
+def ams_scan(y, y_prob, weights=None, sigall=1., backall=1.):
+    """
+    helper function to calculate ams values along roc curve
+
+    Args:
+        y          : true y
+        x_prob     : predicted y score
+        weights    : weights 
+        sigall     : total weight signal
+        backall    : total weight background
+ 
+    Returns:
+        tuple(pcut-array, ams-array)
+
+    """
+    fpr, tpr, thr = roc_curve(y, y_prob, sample_weight=weights)
+    ams_vals = ams(tpr * sigall, fpr * backall)
+    return ( thr, ams_vals) 
+
+
